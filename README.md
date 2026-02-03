@@ -19,7 +19,7 @@ Create the following folders from the root directory, otherwise neo4j will fail 
 
 # Identify an open source dataset
 
-Using the [Healthcare Dataset by Prasad Patil](https://www.kaggle.com/datasets/prasad22/healthcare-dataset?resource=download), we create schemas for how this data may be stored in a relational database and generate data to fill in missing areas from the original dataset. This yields the following "tables":
+Using the [Healthcare Dataset by Prasad Patil](https://www.kaggle.com/datasets/prasad22/healthcare-dataset?resource=download), we use the star schema design to create schemas for how this data may be stored in a relational database and generate data to fill in missing areas from the original dataset. This yields the following "tables":
 
 * hospitals
 * payers
