@@ -9,15 +9,15 @@ Git clone the repo down to your machine.
 Create the following folders from the root directory, otherwise neo4j will fail to start with permissions issues:
 
 - ./neo4j
-- ./neo4j/logs:/logs
-- ./neo4j/config:/config
-- ./neo4j/data:/data
-- ./neo4j/plugin:/plugins
+- ./neo4j/logs
+- ./neo4j/config
+- ./neo4j/data
+- ./neo4j/plugin
 
 
 ## High-Level Process for Building
 
-# Identify an open source dataset
+### Identify an open source dataset
 
 Using the [Healthcare Dataset by Prasad Patil](https://www.kaggle.com/datasets/prasad22/healthcare-dataset?resource=download), we use the star schema design to create schemas for how this data may be stored in a relational database and generate data to fill in missing areas from the original dataset. This yields the following "tables":
 
@@ -27,7 +27,7 @@ Using the [Healthcare Dataset by Prasad Patil](https://www.kaggle.com/datasets/p
 * reviews
 * visits        (this table ties together multiple other tables)
 
-# Design System at a High-Level
+### Sytem Design at a High-Level
 
 ![system diagram](images/rag_system_diagram.png)
 
