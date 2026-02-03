@@ -1,0 +1,11 @@
+.DS_STORE
+.venv/
+.vscode/
+*.pyc
+__pycache__
+*.env*
+*.db
+*.png
+
+neo4j/
+neo4j_auth.txt
