@@ -1,0 +1,35 @@
+services:
+
+  neo4j:
+    image: neo4j:2025.12.1-bullseye
+    volumes:
+        - ./neo4j/logs:/logs
+        - ./neo4j/config:/config
+        - ./neo4j/data:/data
+        - ./neo4j/plugin:/plugins
+    environment:
+        - NEO4J_AUTH_FILE=/run/secrets/neo4j_auth_file
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    restart: always
+    secrets:
+      - neo4j_auth_file
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider localhost:7474 || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  neo4j_etl:
+    build:
+      context: ./neo4j_etl
+    env_file:
+      - .env
+    depends_on:
+      neo4j:
+        condition: service_healthy  # Wait until neo4j is actually ready
+
+secrets:
+  neo4j_auth_file:
+    file: ./neo4j_auth.txt
